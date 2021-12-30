@@ -5,9 +5,9 @@ import java.time.LocalTime;
 public class TimeLineEntity {
 	
 	private String sender;
-	 
 	private String message;
 	private String receiver;
+	private String messageOfTime;
 	
 	
 	public String getReceiver() {
@@ -28,6 +28,12 @@ public class TimeLineEntity {
 	}
 	public void setMessage(String message) {
 		this.message = message;
+	}
+	public String getMessageOfTime() {
+		return messageOfTime;
+	}
+	public void setMessageOfTime(String messageOfTime) {
+		this.messageOfTime = messageOfTime;
 	}
 	
 	

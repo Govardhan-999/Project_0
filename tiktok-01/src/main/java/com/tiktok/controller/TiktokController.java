@@ -1,5 +1,7 @@
 package com.tiktok.controller;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.List;
 import java.util.Scanner;
 import java.util.logging.Logger;
@@ -142,9 +144,18 @@ public class TiktokController implements TiktokControllerInterface {
 				System.out.println("enter message");
 				tl.setMessage(sc1.nextLine());
 				
-				System.out.println("===== message sent sucessfully  to "+tl.getReceiver()+ " ====>>");
+				DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
+				LocalDateTime currentTime = LocalDateTime.now();
+				String dateString;
+				dateString = dtf.format(currentTime).toString();
+				tl.setMessageOfTime(dateString.substring(dateString.indexOf(" ")));
+				
+				System.out.println("===== message sent sucessfully  to "+tl.getReceiver()+" \nDelivered Time::"+tl.getMessageOfTime() +" ====>>");
+				System.out.println("=========================================");
 				System.out.println("===> new message from "+ tl.getSender());
-				System.out.println("Message :::"+ tl.getMessage());
+				
+				System.out.println("Message :::"+ tl.getMessage()+" \nRecevied Time :::"+tl.getMessageOfTime());
+				System.out.println("=========================================");
 				System.out.println(" do you want to continue press s ");
 				s=sc.next();
 				break;
